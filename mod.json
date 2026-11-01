@@ -1,0 +1,61 @@
+{
+	"geode": "4.0.1",
+	"gd": {
+		"win": "2.2074",
+		"android": "2.2074",
+		"mac": "2.2074",
+		"ios": "2.2074"
+	},
+	"id": "viktor.auto-decorator",
+	"name": "Auto Decorator",
+	"version": "v1.0.0",
+	"developer": "Viktor",
+	"description": "Automatically decorates a layout. Pick a theme or type a prompt describing the deco you want.",
+	"tags": ["editor", "utility"],
+	"settings": {
+		"default-theme": {
+			"type": "string",
+			"name": "Default Theme",
+			"description": "Theme preselected when the popup opens.",
+			"default": "Neon",
+			"one-of": ["Neon", "Space", "Forest", "Lava", "Ice", "Candy", "Tech", "Ocean", "Minimal", "Sunset"]
+		},
+		"density": {
+			"type": "float",
+			"name": "Default Density",
+			"description": "How much decoration is added by default.",
+			"default": 0.6,
+			"min": 0.05,
+			"max": 1.0,
+			"control": { "slider": true }
+		},
+		"seed": {
+			"type": "int",
+			"name": "Random Seed",
+			"description": "0 = new random result every time. Any other number gives repeatable results.",
+			"default": 0,
+			"min": 0,
+			"max": 999999
+		},
+		"max-objects": {
+			"type": "int",
+			"name": "Max Objects",
+			"description": "Safety cap on how many objects one run can create.",
+			"default": 3000,
+			"min": 100,
+			"max": 20000
+		},
+		"color-triggers": {
+			"type": "bool",
+			"name": "Add Color Triggers",
+			"description": "Adds color triggers at the start that set BG/ground/line and deco channels (201-205) to the theme colors.",
+			"default": true
+		},
+		"background-panels": {
+			"type": "bool",
+			"name": "Background Panels",
+			"description": "Adds large translucent panels behind the layout for depth.",
+			"default": true
+		}
+	}
+}
