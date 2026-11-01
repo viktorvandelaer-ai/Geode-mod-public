@@ -11,13 +11,20 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Install older Clang (18)
+        shell: pwsh
+        run: |
+          choco install llvm --version=18.1.8 --allow-downgrade --force -y
+          "C:\Program Files\LLVM\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+          & "C:\Program Files\LLVM\bin\clang++.exe" --version
+
       - name: Build the mod
         uses: geode-sdk/build-geode-mod@main
         with:
           bindings: geode-sdk/bindings
           bindings-ref: main
           combine: true
-          configure-args: '-DCMAKE_CXX_FLAGS=-DFMT_USE_CONSTEVAL=0'
 
   package:
     name: Package builds
